@@ -13,7 +13,7 @@
         echo "\$a = $a <BR>";
         echo "\$b = $b <BR>";
         echo '$a + $b = ';
-        print $a + $b;
+        print $a+$b;
         echo "<BR>";
         echo '$a - $b = ';
         print $a - $b;
