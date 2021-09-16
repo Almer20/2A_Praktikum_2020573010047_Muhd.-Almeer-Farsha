@@ -11,49 +11,49 @@
         $val1 = 0;
         $val2 = 0;
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val && $val2;
+        echo $val1 && $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val || $val2;
+        echo $val1 || $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val Xor $val2;
+        echo $val1 Xor $val2;
         echo "<br>";
 
         $val1 = 0;
         $val2 = 1;
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val && $val2;
+        echo $val1 && $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val || $val2;
+        echo $val1 || $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val Xor $val2;
+        echo $val1 Xor $val2;
         echo "<br>";
 
         $val1 = 1;
         $val2 = 0;
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val && $val2;
+        echo $val1 && $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val || $val2;
+        echo $val1 || $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val Xor $val2;
+        echo $val1 Xor $val2;
         echo "<br>";
 
         $val1 = 1;
         $val2 = 1;
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val && $val2;
+        echo $val1 && $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val || $val2;
+        echo $val1 || $val2;
         echo "<br>";
         echo "Operasi $val1 dan $val2 adalah =";
-        echo $val Xor $val2;
+        echo $val1 Xor $val2;
         echo "<br>";
     ?>
 </body>
