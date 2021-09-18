@@ -22,6 +22,5 @@
         echo $hasil = $hasil + $noRumah;
         echo "<br>";
     ?>
-    
 </body>
 </html>
