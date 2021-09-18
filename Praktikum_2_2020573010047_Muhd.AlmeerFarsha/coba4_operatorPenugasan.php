@@ -18,6 +18,5 @@
         echo "<BR>";
         echo "Nilai variabel c adalah = $c";
     ?>
-    
 </body>
 </html>
