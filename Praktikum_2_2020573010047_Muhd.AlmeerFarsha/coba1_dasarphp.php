@@ -7,11 +7,9 @@
     <title>Syntax Dasar PHP - Muhd. Almeer Farsha</title>
 </head>
 <body>
-    <h1>
         <?php
         echo "<a href='#'> hello world</a>" ;
         echo "<br> Tulisan ke dua";
         ?>
-    </h1>
 </body>
 </html>
