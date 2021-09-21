@@ -8,8 +8,7 @@
 </head>
 <body>
         <?php
-        echo "<a href='#'> hello world</a>" ;
-        echo "<br> Tulisan ke dua";
+        echo "hello world" ;
         ?>
 </body>
 </html>
