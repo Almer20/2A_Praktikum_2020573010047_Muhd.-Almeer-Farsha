@@ -16,7 +16,7 @@
                
             <tr>
                 <td>
-                    <label for="">Username </label>
+                                         <label for="">Username </label>
                 </td>
                 <td>
                     :<input type="text" name="username" size="30" placeholder="Masukkan Username">
@@ -70,6 +70,7 @@
                 </td>
             </tr>
         </table>
+        <a href=""></a>
         <input type="submit" name="submit">
         <input type="reset" name="reset">
     </fieldset>    

@@ -18,6 +18,7 @@
     $alamat        = $_POST["alamat"];
     $conn          = mysqli_connect("localhost","root","","db_form")
     or die ("Koneksi gagal");
+    $hash = password_hash($password, PASSWORD_DEFAULT);
     if ($password != $upassword){
         echo "Password tidak sama";
     } else{     
