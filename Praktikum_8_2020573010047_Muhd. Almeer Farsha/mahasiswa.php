@@ -26,11 +26,10 @@
             <!-- isi konten -->
             <div class="col-9 ">
                 <div class="card ms-1 mt-4">
-                    <h5 class="card-header">Data Mahasiswa</h5>
+                    <h5 class="card-header">Mahasiswa yang sedang meminjam</h5>
                     <div class="card-body">
                         <h5 class="card-title">Nama : Muhd.Almeer Farsha</h5>
                         <p class="card-text">Nim : 2020573010047</p>
-                        
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Input Nama</button>
                     </div>
                 </div>
@@ -51,8 +50,8 @@
                                         <input type="text" class="form-control" id="recipient-name">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="message-text" class="col-form-label">Catatan:</label>
-                                        <textarea class="form-control" id="message-text"></textarea>
+                                        <label for="recipient-text" class="col-form-label">Nim:</label>
+                                        <input type="text" class="form-control" id="recipient-name">
                                     </div>
                                 </form>
                             </div>

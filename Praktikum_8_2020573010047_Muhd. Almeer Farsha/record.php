@@ -45,6 +45,7 @@
                                 <th scope="col">Nama</th>
                                 <th scope="col">Kelas</th>
                                 <th scope="col">Barang</th>
+                                <th scope="col">Tanggal Peminjaman</th>
                             </tr>
                         </thead>
                         <body>
@@ -53,6 +54,7 @@
                                 <td>Muhd. Almeer Farsha</td>
                                 <td>TI-2A</td>
                                 <td>Proyektor dan stop kontak</td>
+                                <td>02 Nov 2021</td>
                             </tr>
                         </body>
                     </table>
