@@ -62,7 +62,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="project.php" class="nav-link link-dark " aria-current="page">
+            <a href="home" class="nav-link link-dark <?php if ($_GET['x'] == 'home') echo 'active'; ?>">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home" />
                 </svg>
@@ -73,7 +73,7 @@
             if ($row['level'] == 'mahasiswa'){
         ?>
         <li>
-            <a href="mahasiswa.php" class="nav-link link-dark">
+            <a href="mahasiswa.php?url=mhs" class="nav-link link-dark <?php if ($_GET['url'] == 'mhs') echo 'active'; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill me-2" viewBox="0 0 16 16">
                     <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                 </svg>
