@@ -36,8 +36,8 @@
 <body class="text-center">
   <main class="form-signin">
     <form action="../proses/proses_signin.php" method="POST">
-    <h1 class="h3 mb-3 fw-normal">SISTEM INFORMASI PEMINJAMAN BARANG TI</h1>
-      <img class="mb-2" src="https://lh3.googleusercontent.com/proxy/CruHAzzwinJl5Y3E1tO0uRjz-tEZrHJnT9KRFEYCwdyGBKx16E1InYh4049BOaATctuONFsjycub8NUhOa50jISD3uF7nDmPl9bp202cxFLdtJLKE6aL4VVg" alt="" width="90" height="70">
+    <h1 class="h3 mb-3 fw-normal"></h1>
+      <img class="mb-2" src="https://lh3.googleusercontent.com/proxy/IaI1VVciVjcH-zCEZPvSJvgWwoOYiB8shJcZ8BI5XP6mwrVvjpGHnyY-787ErXnKnbCj8f34YqnrqoW3XqAGhOZocEsmdjjmKwup2FIkXTbLn0DoxFeCffRB" alt="" width="150" height="150">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">

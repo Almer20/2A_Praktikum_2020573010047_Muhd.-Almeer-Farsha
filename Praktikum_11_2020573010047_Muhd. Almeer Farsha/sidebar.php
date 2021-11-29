@@ -1,6 +1,9 @@
 <?php
-        $hasil = mysqli_query($conn, "select * from tb_user WHERE username='$_SESSION[username]' ");
-        $row = mysqli_fetch_array($hasil);
+$hasil = mysqli_query($conn, "select * from tb_user WHERE username='$_SESSION[username]' ");
+$row = mysqli_fetch_array($hasil);
+if (isset($_GET['x'])){
+    $url=$_GET['x'];
+}
 ?>
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="bootstrap" viewBox="0 0 118 94">
@@ -63,10 +66,14 @@
 
 <!--sidebar -->
 <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="home" class="nav-link link-dark <?php if ($_GET['x'] == 'home') echo 'active'; ?>" aria-current="page">
+            <a href="home" class="nav-link link-dark <?php if ($url == 'home') echo "active" ?>" aria-current="page">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home" />
                 </svg>
@@ -77,7 +84,7 @@
         if ($row['level'] == 'mahasiswa' || $row['level'] == 'admin') {
         ?>
             <li>
-                <a href="mahasiswa" class="nav-link link-dark <?php if ($_GET['x'] == 'mahasiswa') echo 'active'; ?>">
+                <a href="mahasiswa" class="nav-link link-dark <?php if ($url == 'mahasiswa') echo "active" ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill me-2" viewBox="0 0 16 16">
                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
                     </svg>
@@ -85,10 +92,11 @@
                 </a>
             </li>
         <?php
-        }if ($row['level'] == 'admin') {
+        }
+        if ($row['level'] == 'admin') {
         ?>
             <li>
-                <a href="peminjam" class="nav-link link-dark <?php if ($_GET['x'] == 'peminjam') echo 'active'; ?>">
+                <a href="peminjam" class="nav-link link-dark <?php if ($url == 'peminjam') echo "active" ?>">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box me-2" viewBox="0 0 16 16">
                         <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z" />
                     </svg>
@@ -96,10 +104,11 @@
                 </a>
             </li>
         <?php
-        }if ($row['level'] == 'admin') {
+        }
+        if ($row['level'] == 'admin' || $row['level'] == 'mahasiswa') {
         ?>
             <li>
-                <a href="barang" class="nav-link link-dark <?php if ($_GET['x'] == 'barang') echo 'active'; ?>">
+                <a href="barang" class="nav-link link-dark <?php if ($url == 'barang') echo "active" ?>">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#grid" />
                     </svg>
@@ -107,10 +116,11 @@
                 </a>
             </li>
         <?php
-        } if ($row['level'] == 'admin' || $row['level'] == 'mahasiswa') {
+        }
+        if ($row['level'] == 'admin' || $row['level'] == 'mahasiswa') {
         ?>
             <li>
-                <a href="record" class="nav-link link-dark <?php if ($_GET['x'] == 'record') echo 'active'; ?>">
+                <a href="record" class="nav-link link-dark <?php if ($url == 'record') echo "active" ?>">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#people-circle" />
                     </svg>
