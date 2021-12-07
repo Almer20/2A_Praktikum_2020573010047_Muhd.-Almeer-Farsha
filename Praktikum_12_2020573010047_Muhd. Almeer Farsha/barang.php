@@ -71,6 +71,8 @@ $query = mysqli_fetch_array($select);
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
                                     </button>
+                                    <!-- Tombol Akhir Edit -->
+
                                     <!-- Tombol delete -->
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#exampledelete<?= $sl["id"]; ?>" class="btn btn-danger">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -81,15 +83,20 @@ $query = mysqli_fetch_array($select);
                             </tr>
                             <?php $i++ ?>
                         <?php endforeach; ?>
+                        <!-- Akhir Tombol Delete -->
                     </tbody>
                 </table>
                 <!-- akhir isi tabel -->
+
+                <!-- Button Tambah barang -->
+                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleadd" class="btn btn-primary" >Tambah Barang</button>
+                <!-- Akhir Button tambah barang -->
             </div>
         </div>
     </div>
     </div>
 
-    <!-- Delete -->
+    <!-- Modal Delete -->
     <?php foreach ($select as $sl) : ?>
         <div class="modal fade" id="exampledelete<?= $sl["id"]; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
@@ -110,7 +117,7 @@ $query = mysqli_fetch_array($select);
         </div>
     <?php endforeach; ?>
 
-    <!-- Edit -->
+    <!-- Modal Edit -->
     <?php foreach ($select as $sl) : ?>
         <div class="modal fade" id="exampleedit<?= $sl["id"] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -138,8 +145,6 @@ $query = mysqli_fetch_array($select);
                                 <input type="text" name="gambar" value="<?= $sl["gambar"]; ?>" class="form-control" id="gambar">
                             </div>
                     </div>
-
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -150,16 +155,41 @@ $query = mysqli_fetch_array($select);
         </div>
     <?php endforeach; ?>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Modal Tambah Barang -->
+    <?php foreach ($select as $sl) : ?>
+        <div class="modal fade" id="exampleadd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Tambah</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="proses/proses_tambah.php" method="POST">
+                            <div class="mb-1">
+                                <label for="nama_barang" class="col-form-label">Nama Barang:</label>
+                                <input type="text" name="nama_barang" class="form-control" id="nama_barang">
+                            </div>
+                            <div class="mb-1">
+                                <label for="keterangan" class="col-form-label">Keterangan Barang:</label>
+                                <input type="text" name="keterangan" class="form-control" id="keterangan">
+                            </div>
+                            <div class="mb-1">
+                                <label for="gambar" class="col-form-label">Gambar Barang:</label>
+                                <input type="text" name="gambar" class="form-control" id="gambar">
+                            </div>
+                    </div>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success">Tambah</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-
 </body>
-
 </html>
