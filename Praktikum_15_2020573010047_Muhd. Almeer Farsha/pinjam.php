@@ -109,13 +109,14 @@ LEFT JOIN tb_dosen dos ON mk.dosen = dos.nip");
                                     if ($sl['status'] == 1) echo "<span class='badge bg-warning text-dark'>Pending</span>";
                                     elseif ($sl['status'] == 2) echo "<span class='badge bg-success'>Disetujui</span>";
                                     elseif ($sl['status'] == 3) echo "<span class='badge bg-danger'>Tidak Disetujui</span>";
-                                    elseif ($sl['status'] == 4) echo "<span class='badge bg-Primary'>Dikembalikan</span>";
-                                    elseif ($sl['status'] == 5) echo "<span class='badge bg-Primary'>Proses Dikembalikan</span>";
+                                    elseif ($sl['status'] == 4) echo "<span class='badge bg-primary'>Dikembalikan</span>";
+                                    elseif ($sl['status'] == 5) echo "<span class='badge bg-primary'>Proses Dikembalikan</span>";
 
                                     ?>
                                 </td>
                                 <!-- Tombol edit -->
                                 <td>
+                                    <!-- tombol kembalikan -->
                                     <?php
                                     if ($sl['status'] == 2) { ?>
                                         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#kembalikan<?= $sl["kode_barang"]; ?>">
@@ -124,6 +125,7 @@ LEFT JOIN tb_dosen dos ON mk.dosen = dos.nip");
                                                 <path fill-rule="evenodd" d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
                                             </svg>
                                         </button>
+                                        <!-- akhir tombol kembalikan -->
                                     <?php
                                     }
                                     ?>
@@ -193,6 +195,49 @@ LEFT JOIN tb_dosen dos ON mk.dosen = dos.nip");
                                 </div>
                             <?php endforeach; ?>
 
+                            <!-- Modal Kembalikan -->
+                            <?php foreach ($select as $sl) : ?>
+                                <div class="modal fade" id="kembalikan<?= $sl["kode_barang"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Kembalikan barang</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="proses/proses_kembalikan.php" method="POST">
+                                                    <input name="id_peminjaman" type="hidden" value="<?= $sl['id_peminjaman'] ?>">
+                                                    <div class="mb-1">
+                                                        <label for="nama_barang" class="col-form-label">Nama Barang:</label>
+                                                        <input type="text" class="form-control" value="<?php echo $sl['kode_barang'] . " - " . $sl['nama_barang'] . " " . $sl['keterangan'] ?>" disabled>
+
+                                                    </div>
+
+                                                    <div class="mb-1">
+                                                        <label for="nama_barang" class="col-form-label">Mata Kuliah:</label>
+                                                        <label class="form-label">Matakuliah</label>
+                                                        <input type="text" class="form-control" value="<?php echo $sl['nm_matakuliah'] . " - " . $sl['nm_dosen'] ?>" disabled>
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Waktu Peminjaman s/d Waktu Pengembalian</label>
+                                                        <input type="text" class="form-control" value="<?php echo date("d-m-Y H:i:s", strtotime($sl['waktu_peminjaman'])) . " s/d " . date("d-m-Y H:i:s", strtotime($sl['waktu_pengembalian'])) ?>" disabled>
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Submit</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                            <!-- Akhir Modal Kembalikan -->
+
+                            <!-- Modal Persetujuan -->
+
+                            <!-- Modal tutup setuju  -->
 
                             </tr>
                     </tbody>
@@ -308,58 +353,7 @@ LEFT JOIN tb_dosen dos ON mk.dosen = dos.nip");
             </div>
         </div>
 
-        <!-- Modal Kembalikan -->
-        <?php foreach ($select as $sl) : ?>
-            <div class="modal fade" id="kembalikan<?= $sl["kode_barang"]; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Kembalikan barang</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="proses/proses_pinjam.php" method="POST">
-                                <div class="mb-1">
-                                    <label for="nama_barang" class="col-form-label">Nama Barang:</label>
-                                    <select name="brg" class="form-select" aria-label="Default select example">
-                                        <?php
-                                        $query3 = mysqli_query($conn, "SELECT * FROM tb_barang");
-                                        while ($hasil1 = mysqli_fetch_array($query3)) { ?>
-                                            <option value='<?= $hasil1['kode_barang'] ?>'>
-                                                <?= $hasil1['nama_barang'] . "-" . $hasil1['kode_barang'] ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
 
-                                <div class="mb-1">
-                                    <label for="nama_barang" class="col-form-label">Mata Kuliah:</label>
-                                    <select name="mk" class="form-select" aria-label="Default select example">
-                                        <?php
-                                        $query1 = mysqli_query($conn, "SELECT * FROM tb_matakuliah mk LEFT JOIN tb_dosen dos ON mk.dosen = dos.nip");
-                                        while ($hasil2 = mysqli_fetch_array($query1)) { ?>
-                                            <option value='<?= $hasil2['kode_matakuliah'] ?>'>
-                                                <?= $hasil2['nm_matakuliah'] . "-" . $hasil2['kode_matakuliah'] ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form label">Waktu Pengembalian</label>
-                                    <input name="wkt_kembali" type="datetime-local" class="form-control">
-                                </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-success">Pinjam</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-        <!-- Akhir Modal Kembalikan -->
         <!-- Optional JavaScript -->
         <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/sidebars.js"></script>

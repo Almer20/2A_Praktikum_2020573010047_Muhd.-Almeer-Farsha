@@ -116,7 +116,7 @@ if (isset($_GET['x'])) {
             </li>
         <?php
         }
-        if ($row['level'] == 'admin') {
+        if ($row['level'] == 'admin' || $row['level'] == 'mahasiswa') {
         ?>
             <li>
                 <a href="riwayatpeminjaman" class="nav-link link-dark <?php if ($url == 'riwayatpeminjaman') echo "active" ?>">
